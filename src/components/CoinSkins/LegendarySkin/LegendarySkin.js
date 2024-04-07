@@ -15,9 +15,9 @@ const LegendarySkin = ({ selected, onSelect }) => {
       setBalance(prevBalance => prevBalance - 10.0);
       localStorage.setItem('legendarySkinP', true);
       setLegendarySkinP(true);
-      onSelect("legendary");
+      onSelect(2);
     } else if (legendarySkinP) {
-      onSelect("legendary");}
+      onSelect(2);}
 
     }
 

@@ -11,8 +11,8 @@ const DefaultCoin = () => {
   const { setFiveHundred, setHundred } = contextData;
 
   let coinImageSource = defaultskin;
-  const legendarySkin = localStorage.getItem("selectedSkin") === "legendary";
-      const dogSkin = localStorage.getItem("selectedSkin") === "dog";
+  const legendarySkin = localStorage.getItem("selectedSkin") === 2;
+  const dogSkin = localStorage.getItem("selectedSkin") === 3;
 
   if (legendarySkin) {
     coinImageSource = legendaryskin;
