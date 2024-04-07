@@ -1,10 +1,9 @@
 import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
 import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
-import sendUserDataFromLocalStorage from "../utils/sendUserDataFromLocalStorage";
+import sendUserDataFromLocalStorage from "../utils/axiosCreate";
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
