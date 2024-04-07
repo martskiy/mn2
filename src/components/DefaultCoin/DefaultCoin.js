@@ -10,26 +10,25 @@ const DefaultCoin = () => {
   const { contextData } = useContext(UserContext);
   const { setFiveHundred, setHundred } = contextData;
 
+  let coinImageSource = defaultskin;
+  const legendarySkin = localStorage.getItem("selectedSkin") === "legendary";
+      const dogSkin = localStorage.getItem("selectedSkin") === "dog";
+
+  if (legendarySkin) {
+    coinImageSource = legendaryskin;
+  } else if (dogSkin) {
+    coinImageSource = dogskin;
+  }
+
   const handleCoinClick = (event) => {
     if (localStorage.getItem("bust") === "true") {
       setFiveHundred(true);
     } else {
       setHundred(true);
     }
-
+  
     for (let i = 0; i < 5; i++) {
       const smallCoin = document.createElement("img");
-
-      // Определение источника изображения в зависимости от флага в локальном хранилище
-      let coinImageSource = defaultskin;
-      const legendarySkin = localStorage.getItem("selectedSkin") === "legendary";
-      const dogSkin = localStorage.getItem("selectedSkin") === "dog";
-
-      if (legendarySkin) {
-        coinImageSource = legendaryskin;
-      } else if (dogSkin) {
-        coinImageSource = dogskin;
-      }
 
       smallCoin.src = coinImageSource;
       smallCoin.className = "small-coin";
@@ -49,16 +48,7 @@ const DefaultCoin = () => {
     setTimeout(() => setIsPressed(false), 50);
   };
 
-  // Определение источника изображения в зависимости от флага в локальном хранилище
-  let coinImageSource = defaultskin;
-  const legendarySkin = localStorage.getItem("legendarySkin") === "true";
-  const dogSkin = localStorage.getItem("dogSkin") === "true";
-
-  if (legendarySkin) {
-    coinImageSource = legendaryskin;
-  } else if (dogSkin) {
-    coinImageSource = dogskin;
-  }
+  
 
   return (
     <div
