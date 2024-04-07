@@ -8,7 +8,7 @@ const DefaultSkin = ({ selected, onSelect }) => {
 
   const handleClick = () => {
     
-    onSelect('default');
+    onSelect(1);
   };
 
   useEffect(() => {
