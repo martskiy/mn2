@@ -5,6 +5,7 @@ const UserContext = createContext();
 export default UserContext;
 
 export const UserProvider = ({ children }) => {
+  const [loading, setLoading] = useState(false);
   const [ userId, setUserId] = useState(() => {
     const idStore = localStorage.getItem("userId");
     return idStore ? JSON.parse(idStore) : null;
@@ -36,6 +37,7 @@ export const UserProvider = ({ children }) => {
     const storedValue = localStorage.getItem("dogSkinP");
     return storedValue ? JSON.parse(storedValue) : false;
   });
+  
   const [ legendarySkinP, setLegendarySkinP] = useState(() => {
     const legPStore = localStorage.getItem("legendarySkinP");
     return legPStore ? JSON.parse(legPStore) : false;
