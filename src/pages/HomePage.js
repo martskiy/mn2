@@ -69,7 +69,7 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://empty-pears-change.loca.lt/api/get/?user_id=12345", 
+          "http://127.0.0.1:8000/api/get/?user_id=12345", 
           { 
             headers: {
               Authorization: 'Basic ' + btoa('Tunnel Password:109.87.190.3')
