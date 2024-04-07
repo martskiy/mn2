@@ -4,6 +4,7 @@ import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
+import sendUserDataFromLocalStorage from "../utils/sendUserDataFromLocalStorage";
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -27,11 +28,12 @@ const HomePage = () => {
   );
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
-  const [balance2, setBalance2] = useState(null);
 
   const currentTime = new Date().getTime();
 
   useEffect(() => {
+    sendUserDataFromLocalStorage(); // Вызываем функцию при первой загрузке страницы
+
     let count = 0;
     let intervalID;
     let speedUp = speed ? 50 : 100;
@@ -83,19 +85,6 @@ const HomePage = () => {
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
     }
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          "http://127.0.0.1:8000/api/get/?user_id=12345"
-        );
-        console.log("Response from server:", response.data);
-        setBalance2(response.data.balance);
-      } catch (error) {
-        console.error("Error fetching balance:", error);
-      }
-    };
-
-    fetchData();
 
     if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
@@ -111,7 +100,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="top-section">{balance2}</div>
+      <div className="top-section">1212</div>
       <div className={`top-section2 ${showDream ? "show" : ""}`}>
         {showDream && dream.toFixed(5)}
       </div>
