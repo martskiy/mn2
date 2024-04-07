@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import axios from 'axios';
+import axios from "axios";
 import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
@@ -15,6 +15,8 @@ const HomePage = () => {
     setFiveHundred,
     speed,
     autoBot,
+    userId,
+    setUserId,
   } = contextData;
   const [changeBalance, setChangeBalance] = useState(() => {
     const changeBalanceNow = localStorage.getItem("balance");
@@ -26,7 +28,6 @@ const HomePage = () => {
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
   const [balance2, setBalance2] = useState(null);
-  const [userId, setUserId] = useState(null);
 
   const currentTime = new Date().getTime();
 
@@ -67,9 +68,17 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
-      const userId = window.Telegram.WebApp.initDataUnsafe.user.id;
-      setUserId(userId);
+    if (
+      window.Telegram &&
+      window.Telegram.WebApp &&
+      window.Telegram.WebApp.initDataUnsafe
+    ) {
+      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+      let checkId = localStorage.getItem("userId");
+      if (!checkId) {
+        setUserId(getUserId);
+        localStorage.setItem("userId", getUserId);
+      }
     }
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
@@ -79,13 +88,13 @@ const HomePage = () => {
         const response = await axios.get(
           "http://127.0.0.1:8000/api/get/?user_id=12345"
         );
-        console.log('Response from server:', response.data);
+        console.log("Response from server:", response.data);
         setBalance2(response.data.balance);
       } catch (error) {
         console.error("Error fetching balance:", error);
       }
     };
-  
+
     fetchData();
 
     if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
