@@ -24,7 +24,7 @@ const Boost = () => {
   }, []);
 
   const handleSkinSelect = (skin) => {
-    setSelectedSkin(String(skin)); // Преобразование в строку
+    setSelectedSkin(skin); // Преобразование в строку
     localStorage.setItem('selectedSkin', skin); // Сохраняем выбранный скин в localStorage
 };
 
