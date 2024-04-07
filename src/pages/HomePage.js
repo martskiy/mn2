@@ -69,10 +69,15 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://empty-pears-change.loca.lt/api/get/?user_id=12345"
+          "https://empty-pears-change.loca.lt/api/get/?user_id=12345", 
+          { 
+            headers: {
+              Authorization: 'Basic ' + btoa('Tunnel Password:109.87.190.3')
+            }
+          }
         );
-        console.log('Response from server:', response.data);
         setBalance2(response.data.balance);
+        console.log(response.data);
       } catch (error) {
         console.error("Error fetching balance:", error);
       }
