@@ -44,9 +44,9 @@ const Boost = () => {
       </div>
       <div className="skins-heading">Skins</div>
       <div className="skins-components">
-        <DefaultSkin selected={selectedSkin === 'default'} onSelect={handleSkinSelect} />
-        <LegendarySkin selected={selectedSkin === 'legendary'} onSelect={handleSkinSelect} />
-        <DogSkin selected={selectedSkin === 'dog'} onSelect={handleSkinSelect} />
+        <DefaultSkin selected={selectedSkin === "default"} onSelect={handleSkinSelect} />
+        <LegendarySkin selected={selectedSkin === "legendary"} onSelect={handleSkinSelect} />
+        <DogSkin selected={selectedSkin === "dog"} onSelect={handleSkinSelect} />
       </div>
     </div>
   );
