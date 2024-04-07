@@ -22,12 +22,15 @@ const postDataToServer = async (data) => {
 };
 
 const sendUserDataFromLocalStorage = async () => {
-    const userData = {}; // Создаем объект для хранения данных пользователя
+    const userData = {};
+    console.log(userData); // Создаем объект для хранения данных пользователя
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
+        console.log(key);
         if (key !== 'authTokens') { // Пропустить запись с токенами аутентификации
             const value = localStorage.getItem(key);
-            userData[key] = JSON.parse(value); // Добавляем ключ и значение в объект userData
+            userData[key] = JSON.parse(value);
+            console.log(userData); // Добавляем ключ и значение в объект userData
         }
     }
     if (Object.keys(userData).length > 0) { // Проверяем, есть ли какие-либо данные пользователя
