@@ -31,7 +31,7 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    getBalanceFromServer();
+    getBalanceFromServer(userId);
   }, [])
 
   useEffect(() => {
