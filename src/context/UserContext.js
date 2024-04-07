@@ -5,11 +5,6 @@ const UserContext = createContext();
 export default UserContext;
 
 export const UserProvider = ({ children }) => {
-  const [skinChoose, setSkinChoose] = useState(() => {
-    const skinChooseStore = localStorage.getItem("skinChoose");
-    return skinChooseStore ? JSON.parse(skinChooseStore) : "1";
-  })
-  const [loading, setLoading] = useState(false);
   const [ userId, setUserId] = useState(() => {
     const idStore = localStorage.getItem("userId");
     return idStore ? JSON.parse(idStore) : null;
@@ -36,20 +31,16 @@ export const UserProvider = ({ children }) => {
     const bonusStore = localStorage.getItem("bonus");
     return bonusStore ? JSON.parse(bonusStore) : false;
   });
-  const [ dogSkin, setDogSkin] = useState(() => {
-    const dogStore = localStorage.getItem("dogSkin");
-    return dogStore ? JSON.parse(dogStore) : false;
-  })
-  const [ dogSkinP, setDogSkinP] = useState(localStorage.getItem("dogSkinP"))
-  const [ legendarySkin, setLegendarySkin] = useState(localStorage.getItem("legendarySkin"))
+
+  const [dogSkinP, setDogSkinP] = useState(() => {
+    const storedValue = localStorage.getItem("dogSkinP");
+    return storedValue ? JSON.parse(storedValue) : false;
+  });
   const [ legendarySkinP, setLegendarySkinP] = useState(() => {
     const legPStore = localStorage.getItem("legendarySkinP");
     return legPStore ? JSON.parse(legPStore) : false;
   })
-  const [defaultSkin, setDefaultSkin] = useState(() => {
-    const defaultSkinStore = localStorage.getItem("defaultSkin");
-    return defaultSkinStore ? JSON.parse(defaultSkinStore) : true;
-  })
+
 
   useEffect(() => {
     const saveUserStateToLocalStorage = () => {
