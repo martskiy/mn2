@@ -31,7 +31,11 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    sendUserDataFromLocalStorage(); // Вызываем функцию при первой загрузке страницы
+    sendUserDataFromLocalStorage();
+  }, [])
+
+  useEffect(() => {
+     // Вызываем функцию при первой загрузке страницы
 
     let count = 0;
     let intervalID;
