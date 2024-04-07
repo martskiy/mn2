@@ -73,7 +73,7 @@ const HomePage = () => {
     }
     if (window.Telegram && window.Telegram.WebApp) {
       window.Telegram.WebApp.expand();
-
+    }
     const fetchData = async () => {
       try {
         const response = await axios.get(
