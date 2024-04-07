@@ -22,8 +22,8 @@ const DefaultCoin = () => {
 
       // Определение источника изображения в зависимости от флага в локальном хранилище
       let coinImageSource = defaultskin;
-      const legendarySkin = localStorage.getItem("legendarySkin") === "true";
-      const dogSkin = localStorage.getItem("dogSkin") === "true";
+      const legendarySkin = localStorage.getItem("selectedSkin") === "legendary";
+      const dogSkin = localStorage.getItem("selectedSkin") === "dog";
 
       if (legendarySkin) {
         coinImageSource = legendaryskin;
