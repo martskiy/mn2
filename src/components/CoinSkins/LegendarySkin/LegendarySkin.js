@@ -15,17 +15,8 @@ const LegendarySkin = ({ selected, onSelect }) => {
       setBalance(prevBalance => prevBalance - 10.0);
       localStorage.setItem('legendarySkinP', true);
       setLegendarySkinP(true);
-      localStorage.setItem('dogSkin', false);
-      localStorage.setItem('legendarySkin', true);
-      localStorage.setItem('defaultSkin', false);
       onSelect('legendary');
-      
-
     } else if (legendarySkinP) {
-      localStorage.setItem('dogSkin', false);
-      localStorage.setItem('legendarySkin', true);
-      localStorage.setItem('defaultSkin', false);
-      localStorage.setItem('skinChoose', '2')
       onSelect('legendary');}
 
     }

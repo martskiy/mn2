@@ -7,9 +7,7 @@ const DefaultSkin = ({ selected, onSelect }) => {
   const [isSelected, setIsSelected] = useState(selected);
 
   const handleClick = () => {
-    localStorage.setItem('dogSkin', false);
-    localStorage.setItem('legendarySkin', false);
-    localStorage.setItem('defaultSkin', true); 
+    
     onSelect('default');
   };
 

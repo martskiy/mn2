@@ -117,7 +117,6 @@ const HomePage = () => {
       </div>
       <div className="middle-section">{changeBalance.toFixed(5)}</div>
       <div className="third-section">
-        {userId}
         <DefaultCoin />
       </div>
       <div className="bottom-section">
