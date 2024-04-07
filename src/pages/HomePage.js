@@ -69,15 +69,10 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "http://127.0.0.1:8000/api/get/?user_id=12345", 
-          { 
-            headers: {
-              Authorization: 'Basic ' + btoa('Tunnel Password:109.87.190.3')
-            }
-          }
+          "http://127.0.0.1:8000/api/get/?user_id=12345"
         );
+        console.log('Response from server:', response.data);
         setBalance2(response.data.balance);
-        console.log(response.data);
       } catch (error) {
         console.error("Error fetching balance:", error);
       }
