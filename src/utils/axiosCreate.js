@@ -14,6 +14,7 @@ export const postDataToServer = async (data) => {
     try {
         const response = await axiosInstance.post('/api/user-data/', data);
         console.log(response.data);
+        localStorage.setItem('balance', response.data.balance)
         return response.data;
         
     } catch (error) {
@@ -26,13 +27,13 @@ const sendUserDataFromLocalStorage = async () => {
     const userId = localStorage.getItem('userId');
     const balance = localStorage.getItem('balance');
     
-    const userData = { userId: userId, balance: balance }; // Создаем объект userData с явными ключами и значениями
+    const userData = { userId: userId, balance: balance }; 
 
     console.log(userData);
 
-    if (userId && balance) { // Проверяем, есть ли какие-либо данные пользователя
+    if (userId && balance) { 
         try {
-            await postDataToServer(userData); // Отправляем объект userData на сервер
+            await postDataToServer(userData); 
             console.log('Data sent successfully');
         } catch (error) {
             console.error('Error sending data:', error);
