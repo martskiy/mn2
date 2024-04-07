@@ -3,7 +3,7 @@ import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
-import sendUserDataFromLocalStorage from "../utils/axiosCreate";
+import getBalanceFromServer from "../utils/axiosGet";
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -31,7 +31,7 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    sendUserDataFromLocalStorage();
+    getBalanceFromServer();
   }, [])
 
   useEffect(() => {

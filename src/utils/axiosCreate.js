@@ -14,7 +14,6 @@ export const postDataToServer = async (data) => {
     try {
         const response = await axiosInstance.post('/api/user-data/', data);
         console.log(response.data);
-        localStorage.setItem('balance', response.data.balance)
         return response.data;
         
     } catch (error) {
