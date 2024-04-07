@@ -1,4 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
+import axios from 'axios';
 import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
@@ -68,15 +69,15 @@ const HomePage = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://5828-109-87-190-3.ngrok-free.app/api/get/?user_id=12345"
+          "https://wise-trams-walk.loca.lt/api/get/?user_id=12345"
         );
+        console.log('Response from server:', response.data);
         setBalance2(response.data.balance);
       } catch (error) {
         console.error("Error fetching balance:", error);
-        console.log('WARNNG');
       }
     };
-
+  
     fetchData();
 
     if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
