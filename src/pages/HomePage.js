@@ -24,6 +24,7 @@ const HomePage = () => {
   );
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
+  const [balance2, setBalance2] = useState(null);
 
   const currentTime = new Date().getTime();
 
@@ -64,6 +65,20 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://5828-109-87-190-3.ngrok-free.app/api/get/?user_id=12345"
+        );
+        setBalance2(response.data.balance);
+      } catch (error) {
+        console.error("Error fetching balance:", error);
+        console.log('WARNNG');
+      }
+    };
+
+    fetchData();
+
     if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
       setLastActivity(currentTime);
@@ -78,7 +93,7 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="top-section">15.025711</div>
+      <div className="top-section">{balance2}</div>
       <div className={`top-section2 ${showDream ? "show" : ""}`}>
         {showDream && dream.toFixed(5)}
       </div>
