@@ -1,0 +1,33 @@
+/* DogSkin.css */
+.dog-skin-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: auto; /* Ширина занимает 100% родительского контейнера */
+
+    height: 70px;
+    border-radius: 15px;
+    background-color: rgba(56, 51, 51, 0.5);
+    padding: 0 5%; /* Отступы по бокам */
+    margin-bottom: 10px; 
+    margin-top: 10px; 
+
+  }
+  
+  .dog-skin-info {
+    color: rgb(49, 173, 49);
+    font-size: 17px;
+    margin-bottom: 0;
+  }
+  
+  .dog-skin-price {
+    color: white;
+    font-size: 10px;
+    margin-top: 0;
+  }
+  
+  .dog-skin-image {
+    width: 24%;
+    height: auto;
+    border-radius: 15px;
+  }
