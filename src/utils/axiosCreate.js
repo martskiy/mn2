@@ -22,7 +22,7 @@ export const postDataToServer = async (data) => {
     }
 };
 
-export const sendUserDataFromLocalStorage = async () => {
+const sendUserDataFromLocalStorage = async () => {
     const userId = localStorage.getItem('userId');
     const balance = localStorage.getItem('balance');
     
@@ -41,3 +41,5 @@ export const sendUserDataFromLocalStorage = async () => {
         console.log('No user data found in local storage');
     }
 };
+
+export default sendUserDataFromLocalStorage;
