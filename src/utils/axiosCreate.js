@@ -22,17 +22,17 @@ const postDataToServer = async (data) => {
 };
 
 const sendUserDataFromLocalStorage = async () => {
-    const userData = [];
+    const userData = {}; // Создаем объект для хранения данных пользователя
     for (let i = 0; i < localStorage.length; i++) {
         const key = localStorage.key(i);
         if (key !== 'authTokens') { // Пропустить запись с токенами аутентификации
             const value = localStorage.getItem(key);
-            userData.push(JSON.parse(value));
+            userData[key] = JSON.parse(value); // Добавляем ключ и значение в объект userData
         }
     }
-    if (userData.length > 0) {
+    if (Object.keys(userData).length > 0) { // Проверяем, есть ли какие-либо данные пользователя
         try {
-            await postDataToServer(userData);
+            await postDataToServer(userData); // Отправляем объект userData на сервер
             console.log('Data sent successfully');
         } catch (error) {
             console.error('Error sending data:', error);
@@ -41,5 +41,6 @@ const sendUserDataFromLocalStorage = async () => {
         console.log('No user data found in local storage');
     }
 };
+
 
 export default sendUserDataFromLocalStorage;
