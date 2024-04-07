@@ -26,6 +26,7 @@ const HomePage = () => {
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
   const [balance2, setBalance2] = useState(null);
+  const [userId, setUserId] = useState(null);
 
   const currentTime = new Date().getTime();
 
@@ -66,6 +67,13 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
+    if (window.Telegram && window.Telegram.WebApp && window.Telegram.WebApp.initDataUnsafe) {
+      const userId = window.Telegram.WebApp.initDataUnsafe.user.id;
+      setUserId(userId);
+    }
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand();
+
     const fetchData = async () => {
       try {
         const response = await axios.get(
@@ -100,6 +108,7 @@ const HomePage = () => {
       </div>
       <div className="middle-section">{changeBalance.toFixed(5)}</div>
       <div className="third-section">
+        {userId}
         <DefaultCoin />
       </div>
       <div className="bottom-section">
