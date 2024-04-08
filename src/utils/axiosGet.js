@@ -15,7 +15,6 @@ export const getBalanceFromServer = async (userId) => {
     try {
         const response = await axiosInstance.get(`/api/balance/${userId}/`);
         console.log(response.data);
-        localStorage.setItem('balance', response.data.balance);
         return response.data.balance;
     } catch (error) {
         console.error('Error getting balance:', error);
