@@ -6,9 +6,8 @@ import legendaryskin from "./photo_2024-03-17_19-41-14-removebg-preview.png";
 import UserContext from "../../context/UserContext";
 
 const DefaultCoin = () => {
-  const [isPressed, setIsPressed] = useState(false);
   const { contextData } = useContext(UserContext);
-  const { setFiveHundred, setHundred } = contextData;
+  const { setFiveHundred, setHundred, setIsPressed, isPressed } = contextData;
 
   let coinImageSource = defaultskin;
   const legendarySkin = localStorage.getItem("selectedSkin") == 2;

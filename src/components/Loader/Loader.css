@@ -1,0 +1,13 @@
+.loader-container {
+    width: 100%;
+    height: 10px;
+    border: 1px solid black; /* Бордер 1px */
+    overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
+  }
+  
+  .loader {
+    height: 100%;
+    background-color: green; /* Зеленый цвет */
+    transition: width 1s ease-in-out; /* Анимация изменения ширины */
+  }
+  

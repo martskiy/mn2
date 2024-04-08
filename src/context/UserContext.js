@@ -5,6 +5,8 @@ const UserContext = createContext();
 export default UserContext;
 
 export const UserProvider = ({ children }) => {
+
+  const [isPressed, setIsPressed] = useState(false);
   const [skinChoose, setSkinChoose] = useState(() => {
     const skinChooseStore = localStorage.getItem("skinChoose");
     return skinChooseStore ? JSON.parse(skinChooseStore) : "1";
@@ -96,6 +98,9 @@ export const UserProvider = ({ children }) => {
     userId:userId,
     setPageLoaded:setPageLoaded,
     pageLoaded:pageLoaded,
+    isPressed:isPressed,
+    setIsPressed:setIsPressed,
+
 
 
 
