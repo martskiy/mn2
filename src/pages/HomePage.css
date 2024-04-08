@@ -1,10 +1,10 @@
-
-
 .container {
   padding: 20px 0 50px;
   text-align: center;
   background: radial-gradient(circle at center, rgb(40, 40, 36), black);
+  min-height: 100vh; /* Минимальная высота контейнера равна высоте видимой области */
 }
+
 
 .top-section,
 .middle-section {
