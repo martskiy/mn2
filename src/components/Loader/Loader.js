@@ -23,7 +23,7 @@ const Loader = ({ visible }) => {
             return 0;
           }
         });
-      }, intervalDuration / 100); // Интервал обновления прогресса
+      }, intervalDuration / 50); // Интервал обновления прогресса
     } else {
       setLoadingProgress(0); // Сброс прогресса загрузки
       clearInterval(intervalID); // Остановка интервала
