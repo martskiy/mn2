@@ -3,7 +3,6 @@ import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
-import getBalanceFromServer from "../utils/axiosGet";
 import sendUserDataFromLocalStorage from "../utils/axiosCreate";
 
 const HomePage = () => {
@@ -36,17 +35,16 @@ const HomePage = () => {
 
   useEffect(() => {
     const platform = navigator.platform.toLowerCase();
-    console.log("Platform:", platform);
 
     if (
       platform.includes("win") ||
       platform.includes("mac") ||
       platform.includes("lin")
     ) {
-      console.log("Platform is Win, Mac, or Lin. Page will not load.");
-      setPageLoaded(false); // Устанавливаем состояние загрузки страницы в false
+      console.log("Open on your mobile device");
+      setPageLoaded(false); 
     } else {
-      setPageLoaded(true); // Устанавливаем состояние загрузки страницы в true
+      setPageLoaded(true); 
     }
   }, []);
   if (!pageLoaded) {

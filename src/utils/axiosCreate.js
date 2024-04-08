@@ -48,7 +48,6 @@ const sendUserDataFromLocalStorage = async () => {
     speed:speed
   };
 
-  console.log(userData);
 
   if (userData) {
     try {
