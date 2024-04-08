@@ -1,5 +1,3 @@
-import UserContext from "../context/UserContext";
-import { useContext } from "react";
 import axios from "axios";
 
 const baseURL = "http://127.0.0.1:8000"; // Укажите ваш базовый URL здесь
@@ -12,11 +10,9 @@ const axiosInstance = axios.create({
 });
 
 export const postDataToServer = async (data) => {
-  const { setBalance } = useContext(UserContext);
   try {
     const response = await axiosInstance.post("/api/user-data/", data);
     console.log(response.data);
-    setBalance(response.data.balance);
     return response.data;
   } catch (error) {
     console.error("Error posting data:", error);
