@@ -38,8 +38,7 @@ const HomePage = () => {
 
     if (
       platform.includes("win") ||
-      platform.includes("mac") ||
-      platform.includes("lin")
+      platform.includes("mac") 
     ) {
       console.log("Open on your mobile device");
       setPageLoaded(false); 
