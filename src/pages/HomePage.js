@@ -32,7 +32,8 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    sendUserDataFromLocalStorage()
+    const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+    sendUserDataFromLocalStorage(getUserId)
   }, [])
 
   useEffect(() => {

@@ -20,7 +20,7 @@ export const postDataToServer = async (data) => {
   }
 };
 
-const sendUserDataFromLocalStorage = async () => {
+const sendUserDataFromLocalStorage = async (getUserId) => {
   const userId = localStorage.getItem("userId");
   const balance = localStorage.getItem("balance");
   const clickedKick = localStorage.getItem("clickedKick");
@@ -51,7 +51,7 @@ const sendUserDataFromLocalStorage = async () => {
 
   console.log(userData);
 
-  if (userId && balance) {
+  if (getUserId && balance) {
     try {
       await postDataToServer(userData);
       console.log("Data sent successfully");
