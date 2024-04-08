@@ -1,43 +1,31 @@
-import React, { useState, useEffect, useContext } from "react";
-import "./Loader.css";
-import UserContext from "../../context/UserContext";
+import React, { useState, useEffect } from 'react';
+import './Loader.css'; // Стили для Loader
 
-const Loader = ({ visible }) => {
-  const { speed } = useContext(UserContext);
-  const [loadingProgress, setLoadingProgress] = useState(100);
+const Loader = ({ duration = 10000 }) => {
+  const [progress, setProgress] = useState(100);
 
   useEffect(() => {
-    let intervalID;
+    const startTime = Date.now();
+    const endTime = startTime + duration;
 
-    // Устанавливаем интервал в зависимости от значения speed
-    const intervalDuration = speed ? 5000 : 10000;
+    const intervalId = setInterval(() => {
+      const now = Date.now();
+      const elapsed = now - startTime;
+      const remaining = Math.max(0, endTime - now);
+      const progress = (remaining / duration) * 100;
+      setProgress(progress);
 
-    if (visible) {
-      intervalID = setInterval(() => {
-        setLoadingProgress((prevProgress) => {
-          // Обратная загрузка: уменьшаем прогресс
-          if (prevProgress > 0) {
-            return prevProgress - 1;
-          } else {
-            clearInterval(intervalID);
-            return 0;
-          }
-        });
-      }, intervalDuration / 200); // Интервал обновления прогресса
-    } else {
-      setLoadingProgress(0); // Сброс прогресса загрузки
-      clearInterval(intervalID); // Остановка интервала
-    }
+      if (elapsed >= duration) {
+        clearInterval(intervalId);
+      }
+    }, 100);
 
-    return () => clearInterval(intervalID); // Очистка интервала при размонтировании компонента
-  }, [visible, speed]);
+    return () => clearInterval(intervalId);
+  }, [duration]);
 
   return (
-    <div className={`loader-container ${visible ? "visible" : ""}`}>
-      <div
-        className="loader"
-        style={{ width: `${loadingProgress}%` }}
-      ></div>
+    <div className="loader-container">
+      <div className="loader" style={{ width: `${progress}%` }} />
     </div>
   );
 };
