@@ -4,7 +4,7 @@ import qrcode from "./IMG_5556.PNG"
 
 const HomePage = () => {
   return (
-    <div className="container">
+    <div className="container44">
       <div className="image-container">
         <img
           src={qrcode}
