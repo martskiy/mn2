@@ -1,15 +1,13 @@
 .loader-container {
-    margin-top: 25px;
-    width: 100%;
-    height: 15px;
-    border: 1px solid rgb(16, 39, 14); 
-    overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
-  }
-  
-  .loader {
-    height: 100%;
-    border-radius: 10%;
-    background-color: rgb(40, 119, 40); /* Зеленый цвет */
-    transition: width 1s ease-in-out; /* Анимация изменения ширины */
-  }
-  
+  margin-top: 25px;
+  width: 100%;
+  height: 15px;
+  overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
+}
+
+.loader {
+  height: 100%;
+  border-radius: 7.5px; /* Закругляем края на половину высоты */
+  background-color: rgb(91, 201, 91); /* Зеленый цвет */
+  transition: width 1s ease-in-out; /* Анимация изменения ширины */
+}
