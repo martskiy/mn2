@@ -1,16 +1,12 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Loader.css'; // Стили для Loader
-import UserContext from "../../context/UserContext";
 
 const Loader = ({ duration = 10000 }) => {
-  const { fiveHundred, hundred } = useContext(UserContext);
   const [progress, setProgress] = useState(100);
-  const [hideLoader, setHideLoader] = useState(false);
 
   useEffect(() => {
     const startTime = Date.now();
-    const timers = fiveHundred ? 0.5 : 1
-    const endTime = startTime + duration * timers;
+    const endTime = startTime + duration;
 
     const intervalId = setInterval(() => {
       const now = Date.now();
@@ -21,17 +17,11 @@ const Loader = ({ duration = 10000 }) => {
 
       if (elapsed >= duration) {
         clearInterval(intervalId);
-        setHideLoader(true); // По истечении времени скрываем Loader
       }
     }, 100);
 
     return () => clearInterval(intervalId);
-  }, [duration, fiveHundred, hundred]);
-
-  // Если нужно скрыть Loader, возвращаем null
-  if (hideLoader) {
-    return null;
-  }
+  }, [duration]);
 
   return (
     <div className="loader-container">

@@ -142,7 +142,7 @@ const HomePage = () => {
       </div>
       <div className="bottom-section">
         <MainButton />
-        {(!fiveHundred && !hundred) && <Loader duration={10000} />}
+        <Loader duration={10000} /> 
       </div>
     </div>
   );
