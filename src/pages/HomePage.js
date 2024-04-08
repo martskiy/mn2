@@ -4,7 +4,7 @@ import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
 import getBalanceFromServer from "../utils/axiosGet";
-import sendUserDataFromLocalStorage from '../utils/axiosCreate'
+import sendUserDataFromLocalStorage from "../utils/axiosCreate";
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -33,18 +33,13 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    const userAgentInfo = {
-      userAgent: navigator.userAgent,
-      platform: navigator.platform.toLowerCase(),
-      language: navigator.language,
-      vendor: navigator.vendor,
-    };
-    console.log("User Agent Info:", userAgentInfo);
+    const platform = navigator.platform.toLowerCase();
+    console.log("Platform:", platform);
 
     if (
-      userAgentInfo.platform.includes("win") ||
-      userAgentInfo.platform.includes("mac") ||
-      userAgentInfo.platform.includes("lin")
+      platform.includes("win") ||
+      platform.includes("mac") ||
+      platform.includes("lin")
     ) {
       console.log("Platform is Win, Mac, or Lin. Page will not load.");
       setPageLoaded(false); // Устанавливаем состояние загрузки страницы в false
@@ -68,15 +63,13 @@ const HomePage = () => {
         setUserId(getUserId);
         localStorage.setItem("userId", getUserId);
       }
-
-      
     }
     if (window.Telegram && window.Telegram.WebApp) {
       const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
       sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
-  }, [])
+  }, []);
 
   useEffect(() => {
     let count = 0;
@@ -115,7 +108,11 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (autoBot && currentTime - lastActivity >= 60 * 30 * 1000 && lastActivity) {
+    if (
+      autoBot &&
+      currentTime - lastActivity >= 60 * 30 * 1000 &&
+      lastActivity
+    ) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
       setLastActivity(currentTime);
       localStorage.setItem("lastActivity", currentTime.toString());
