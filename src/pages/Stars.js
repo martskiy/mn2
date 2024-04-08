@@ -14,7 +14,7 @@ const Stars = () => {
         xEnd: 1000 * (Math.random() - 0.5),
         yEnd: 1000 * (Math.random() - 0.5),
         scaleEnd: Math.random() * 1.5 + 0.5,
-        animationDuration: Math.random() * 3 + 2
+        animationDuration: (Math.random() * 3 + 2) * 2 // Увеличиваем время анимации в два раза
       };
 
       setStars(prevStars => [...prevStars, newStar]);
