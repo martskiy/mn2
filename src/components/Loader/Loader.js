@@ -17,7 +17,7 @@ const Loader = () => {
     }, 1000);
 
     return () => clearInterval(interval); 
-  }, [speed]);
+  }, [speed, isPressed]); // Добавляем isPressed в массив зависимостей
 
   useEffect(() => {
     if (isPressed) {

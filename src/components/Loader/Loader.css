@@ -1,7 +1,9 @@
 .loader-container {
+    margin-top: 15px;
     width: 100%;
-    height: 10px;
-    border: 1px solid black; /* Бордер 1px */
+    height: 20px;
+    border: 1px solid black; 
+    border-radius: 50%;/* Бордер 1px */
     overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
   }
   
