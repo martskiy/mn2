@@ -1,5 +1,6 @@
 import React from "react";
-import "./Desktop.css"; // Импортируем стили
+import "./Desktop.css"; 
+import qrcode from "./IMG_5556.PNG"
 
 const HomePage = () => {
   return (
@@ -7,7 +8,7 @@ const HomePage = () => {
       <div className="text">Use your mobile device</div>
       <div className="image-container">
         <img
-          src="IMG_5556.PNG"
+          src={qrcode}
           alt="Placeholder"
           className="image"
         />
