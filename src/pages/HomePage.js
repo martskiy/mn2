@@ -26,7 +26,7 @@ const HomePage = () => {
   const [lastActivity, setLastActivity] = useState(
     parseInt(localStorage.getItem("lastActivity"))
   );
-  const [pageLoaded, setPageLoaded] = useState(false);
+  const [pageLoaded, setPageLoaded] = useState(true);
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
 
