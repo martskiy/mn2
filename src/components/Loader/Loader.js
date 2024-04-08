@@ -12,13 +12,13 @@ const Loader = ({ visible }) => {
     if (visible) {
       intervalID = setInterval(() => {
         setLoadingProgress((prevProgress) => prevProgress - 1);
-      }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
+      }, speedUp);
     } else {
-      setLoadingProgress(0); // Сброс прогресса загрузки
-      clearInterval(intervalID); // Остановка интервала
+      setLoadingProgress(0); 
+      clearInterval(intervalID);
     }
 
-    return () => clearInterval(intervalID); // Очистка интервала при размонтировании компонента
+    return () => clearInterval(intervalID);
   }, [visible]);
 
   return (
