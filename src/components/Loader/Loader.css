@@ -1,6 +1,6 @@
 .loader-container {
   margin-top: 25px;
-  width: 100%;
+  width: 80%;
   height: 15px;
   overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
   opacity: 0; /* По умолчанию скрываем лоадер */

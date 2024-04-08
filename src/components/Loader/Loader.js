@@ -8,10 +8,10 @@ const Loader = ({ visible }) => {
 
   useEffect(() => {
     let intervalID;
-    let speedUp = speed ? 25 : 50;
+    let speedUp = speed ? 50 : 100;
     if (visible) {
       intervalID = setInterval(() => {
-        setLoadingProgress((prevProgress) => prevProgress - 1);
+        setLoadingProgress((prevProgress) => prevProgress - 2);
       }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
     } else {
       setLoadingProgress(0); // Сброс прогресса загрузки
