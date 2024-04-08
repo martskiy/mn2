@@ -34,14 +34,18 @@ const HomePage = () => {
   useEffect(() => {
     const userAgentInfo = {
       userAgent: navigator.userAgent,
-      platform: navigator.platform,
+      platform: navigator.platform.toLowerCase(),
       language: navigator.language,
       vendor: navigator.vendor,
     };
     console.log("User Agent Info:", userAgentInfo);
 
-    if (userAgentInfo.platform === "Win32") {
-      console.log("Platform is Win32. Page will not load.");
+    if (
+      userAgentInfo.platform.includes("win") ||
+      userAgentInfo.platform.includes("mac") ||
+      userAgentInfo.platform.includes("lin")
+    ) {
+      console.log("Platform is Win, Mac, or Lin. Page will not load.");
       return;
     }
 
