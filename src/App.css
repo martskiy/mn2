@@ -13,6 +13,8 @@ body {
   -ms-user-select: none;
   /* Запрет выбора текста на веб-сайте */
   user-select: none;
+  margin: 0; /* Устанавливаем марджин на 0 */
+  padding: 0;
 }
 
 #root {
