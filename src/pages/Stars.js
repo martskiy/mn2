@@ -39,7 +39,7 @@ const Stars = () => {
             '--x-end': `${star.xEnd}px`,
             '--y-end': `${star.yEnd}px`,
             '--scale-end': star.scaleEnd,
-            animation: `fly ${star.animationDuration}s linear forwards, moveStar 1.5s ease-in-out forwards, fadeOut 0.5s ease-in-out ${star.animationDuration - 0.5}s forwards`;
+            animation: `fly ${star.animationDuration}s linear forwards, moveStar 1.5s ease-in-out forwards, fadeOut 0.5s ease-in-out ${star.animationDuration - 0.5}s forwards`
 
           }}
           onAnimationEnd={() => {
