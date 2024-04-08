@@ -1,6 +1,6 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: rgb(117, 107, 109);
+  background-color: rgb(213, 146, 157);
   overflow: hidden;
   -webkit-touch-callout: none;
   /* Запрет выделения при долгом нажатии на мобильных устройствах */
@@ -14,7 +14,6 @@ body {
   /* Запрет выбора текста на веб-сайте */
   user-select: none;
 }
-
 
 .container {
   padding: 20px 0 50px;
