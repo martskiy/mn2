@@ -14,11 +14,11 @@
   }
   
   .image-container {
-    width: 50%;
+    width: 100%;
   }
   
   .image {
-    width: 100%;
+    width: 80%;
     height: auto;
   }
   
