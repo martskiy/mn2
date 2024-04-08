@@ -6,6 +6,7 @@ import Boost from './pages/Boost';
 import Task from './pages/Task';
 import Desktop from './pages/Desktop';
 import { UserProvider, useUserContext } from './context/UserContext'; // Импортируем хук useUserContext
+import Stars from './pages/Stars';
 
 function App() {
   const { contextData } = useUserContext(); // Получаем контекст
@@ -16,6 +17,7 @@ function App() {
 
   return (
     <div className="App">
+      <Stars />
       <Router>
         <Switch>
           <Route component={HomePage} path="/" exact />
