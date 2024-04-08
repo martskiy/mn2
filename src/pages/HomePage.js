@@ -141,7 +141,7 @@ const HomePage = () => {
       </div>
       <div className="bottom-section">
         <MainButton />
-        {isPressed && <Loader />}
+        {(hundred || fiveHundred) && <Loader />}
       </div>
     </div>
   );

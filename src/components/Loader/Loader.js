@@ -3,7 +3,7 @@ import './Loader.css';
 import  UserContext  from '../../context/UserContext'; 
 
 const Loader = () => {
-  const { speed, isPressed } = useContext(UserContext); 
+  const { speed, hundred, fiveHundred } = useContext(UserContext); 
 
   const [progress, setProgress] = useState(100); 
 
@@ -14,13 +14,13 @@ const Loader = () => {
       setProgress(prevProgress => {
         return prevProgress - (1 / loadingTime) * 100;
       });
-    }, 1000);
+    }, 10);
 
     return () => clearInterval(interval); 
-  }, [speed, isPressed]); // Добавляем isPressed в массив зависимостей
+  }, [speed, hundred, fiveHundred]); // Добавляем isPressed в массив зависимостей
 
   useEffect(() => {
-    if (isPressed) {
+    if (fiveHundred || hundred) {
       const loadingTime = speed ? 5 : 10; 
 
       const timeout = setTimeout(() => {
@@ -28,7 +28,7 @@ const Loader = () => {
       }, loadingTime * 1000);
       return () => clearTimeout(timeout); 
     }
-  }, [isPressed, speed]);
+  }, [hundred, fiveHundred, speed]);
 
   return (
     <div className="loader-container">
