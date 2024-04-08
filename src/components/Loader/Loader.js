@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './Loader.css'; // Стили для Loader
 
 const Loader = ({ duration = 10000 }) => {
+  console.log(duration);
   const [progress, setProgress] = useState(100);
 
   useEffect(() => {
