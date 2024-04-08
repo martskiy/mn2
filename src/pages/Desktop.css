@@ -15,6 +15,7 @@
   
   .image-container {
     width: 100%;
+    margin-top: 20px; /* Добавляем отступ сверху */
   }
   
   .image {
