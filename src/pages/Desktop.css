@@ -1,24 +1,15 @@
+/* Desktop.css */
 
-.container44 {
+.image-container-desktop {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
-    height: 90vh; /* 100% высоты окна браузера */
+    align-items: center;
+    height: 100vh; /* Выравниваем по центру по вертикали */
   }
   
-  .text44 {
-    color: white;
-    font-size: 24px;
-    text-align: center;
-  }
-  
-  .image-container44 {
-    width: auto;
-  }
-  
-  .image44 {
-    max-width: 20%; /* Максимальная ширина картинки будет равна ширине родительского контейнера */
-    max-height: 90vh; /* Максимальная высота картинки будет 90% высоты окна браузера */
+  .image {
+    max-width: 80%;
+    display: block;
+    margin: 0 auto; /* Размещаем по центру по горизонтали */
   }
   
