@@ -1,9 +1,7 @@
-import React, { useState, useEffect,useContext } from "react";
+import React, { useState, useEffect } from "react";
 import "./Loader.css";
-import UserContext from "../../context/UserContext";
 
-const Loader = ({ visible }) => {
-  const { speed } = useContext(UserContext);
+const Loader = ({ visible, speed }) => {
   const [loadingProgress, setLoadingProgress] = useState(100);
 
   useEffect(() => {
@@ -12,13 +10,13 @@ const Loader = ({ visible }) => {
     if (visible) {
       intervalID = setInterval(() => {
         setLoadingProgress((prevProgress) => prevProgress - 1);
-      }, speedUp);
+      }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
     } else {
-      setLoadingProgress(0); 
-      clearInterval(intervalID);
+      setLoadingProgress(0); // Сброс прогресса загрузки
+      clearInterval(intervalID); // Остановка интервала
     }
 
-    return () => clearInterval(intervalID);
+    return () => clearInterval(intervalID); // Очистка интервала при размонтировании компонента
   }, [visible]);
 
   return (
