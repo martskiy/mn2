@@ -6,7 +6,7 @@ const Loader = ({ visible, speed }) => {
 
   useEffect(() => {
     let intervalID;
-    let speedUp = speed ? 50 : 100;
+    let speedUp = speed ? 25 : 50;
     if (visible) {
       intervalID = setInterval(() => {
         setLoadingProgress((prevProgress) => prevProgress - 1);
