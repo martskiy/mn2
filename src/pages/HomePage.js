@@ -4,6 +4,7 @@ import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
 import getBalanceFromServer from "../utils/axiosGet";
+import sendUserDataFromLocalStorage from '../utils/axiosCreate'
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -31,12 +32,10 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
-    getBalanceFromServer(userId);
+    sendUserDataFromLocalStorage()
   }, [])
 
   useEffect(() => {
-     // Вызываем функцию при первой загрузке страницы
-
     let count = 0;
     let intervalID;
     let speedUp = speed ? 50 : 100;
