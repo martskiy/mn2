@@ -48,7 +48,7 @@ const HomePage = () => {
     }
     if (window.Telegram && window.Telegram.WebApp) {
       const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
-      
+      sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
   }, [])
@@ -90,7 +90,7 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
+    if (autoBot && currentTime - lastActivity >= 60 * 30 * 1000 && lastActivity) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
       setLastActivity(currentTime);
       localStorage.setItem("lastActivity", currentTime.toString());
