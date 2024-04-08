@@ -1,12 +1,14 @@
 .loader-container {
   margin-top: 25px;
   width: 100%;
-  height: 15px;
-  overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
+  display: flex;
+  justify-content: center; /* Выравнивание по горизонтали по центру */
 }
 
 .loader {
-  height: 100%;
+  width: 80%; /* Ширина лоадера */
+  height: 15px;
+  overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
   border-radius: 7.5px; /* Закругляем края на половину высоты */
   background-color: rgb(91, 201, 91); /* Зеленый цвет */
   transition: width 1s ease-in-out; /* Анимация изменения ширины */
