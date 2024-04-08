@@ -14,7 +14,7 @@ const Loader = () => {
       setProgress(prevProgress => {
         return prevProgress - (1 / loadingTime) * 100;
       });
-    }, 10);
+    }, 1000);
 
     return () => clearInterval(interval); 
   }, [speed, hundred, fiveHundred]); // Добавляем isPressed в массив зависимостей
