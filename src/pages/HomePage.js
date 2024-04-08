@@ -31,7 +31,24 @@ const HomePage = () => {
 
   const currentTime = new Date().getTime();
 
-
+  useEffect(() => {
+    if (
+      window.Telegram &&
+      window.Telegram.WebApp &&
+      window.Telegram.WebApp.initDataUnsafe
+    ) {
+      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+      let checkId = localStorage.getItem("userId");
+      if (!checkId) {
+        setUserId(getUserId);
+        localStorage.setItem("userId", getUserId);
+        sendUserDataFromLocalStorage(getUserId)
+      }
+    }
+    if (window.Telegram && window.Telegram.WebApp) {
+      window.Telegram.WebApp.expand();
+    }
+  }, [])
 
   useEffect(() => {
     let count = 0;
@@ -70,22 +87,7 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (
-      window.Telegram &&
-      window.Telegram.WebApp &&
-      window.Telegram.WebApp.initDataUnsafe
-    ) {
-      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
-      let checkId = localStorage.getItem("userId");
-      if (!checkId) {
-        setUserId(getUserId);
-        localStorage.setItem("userId", getUserId);
-        sendUserDataFromLocalStorage(getUserId)
-      }
-    }
-    if (window.Telegram && window.Telegram.WebApp) {
-      window.Telegram.WebApp.expand();
-    }
+    
 
     if (autoBot && currentTime - lastActivity >= 2 * 1000 && lastActivity) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
