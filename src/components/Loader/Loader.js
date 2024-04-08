@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import "./Loader.css";
 
-const Loader = ({ visible }) => {
-  const [loadingProgress, setLoadingProgress] = useState(0);
+const Loader = ({ visible, speed }) => {
+  const [loadingProgress, setLoadingProgress] = useState(100);
 
   useEffect(() => {
     let intervalID;
+    let speedUp = speed ? 50 : 100;
     if (visible) {
       intervalID = setInterval(() => {
-        setLoadingProgress((prevProgress) => prevProgress + 1);
-      }, 10); // Измените интервал, чтобы соответствовать вашим требованиям
+        setLoadingProgress((prevProgress) => prevProgress - 1);
+      }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
     } else {
       setLoadingProgress(0); // Сброс прогресса загрузки
       clearInterval(intervalID); // Остановка интервала
