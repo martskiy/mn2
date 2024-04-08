@@ -141,7 +141,7 @@ const HomePage = () => {
       </div>
       <div className="bottom-section">
         <MainButton />
-        <Loader />
+        {isPressed && <Loader />}
       </div>
     </div>
   );
