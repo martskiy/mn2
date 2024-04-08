@@ -32,7 +32,7 @@ const HomePage = () => {
   
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
-  const [progress, setProgress] = useState(0);
+
 
   const currentTime = new Date().getTime();
 

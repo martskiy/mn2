@@ -8,18 +8,29 @@ const Loader = ({ visible }) => {
 
   useEffect(() => {
     let intervalID;
-    let speedUp = speed ? 50 : 100;
+
+    // Устанавливаем интервал в зависимости от значения speed
+    const intervalDuration = speed ? 5000 : 10000;
+
     if (visible) {
       intervalID = setInterval(() => {
-        setLoadingProgress((prevProgress) => prevProgress - 1);
-      }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
+        setLoadingProgress((prevProgress) => {
+          // Обратная загрузка: уменьшаем прогресс
+          if (prevProgress > 0) {
+            return prevProgress - 1;
+          } else {
+            clearInterval(intervalID);
+            return 0;
+          }
+        });
+      }, intervalDuration / 100); // Интервал обновления прогресса
     } else {
       setLoadingProgress(0); // Сброс прогресса загрузки
       clearInterval(intervalID); // Остановка интервала
     }
 
     return () => clearInterval(intervalID); // Очистка интервала при размонтировании компонента
-  }, [visible]);
+  }, [visible, speed]);
 
   return (
     <div className={`loader-container ${visible ? "visible" : ""}`}>
