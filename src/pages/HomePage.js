@@ -43,7 +43,13 @@ const HomePage = () => {
         setUserId(getUserId);
         localStorage.setItem("userId", getUserId);
       }
-      // Отправляем данные в базу данных
+
+      
+    }
+    if (window.Telegram && window.Telegram.WebApp) {
+      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+      
+      window.Telegram.WebApp.expand();
       sendUserDataFromLocalStorage(getUserId);
     }
   }, [])
