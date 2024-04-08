@@ -11,7 +11,7 @@ const Loader = ({ visible }) => {
     let speedUp = speed ? 50 : 100;
     if (visible) {
       intervalID = setInterval(() => {
-        setLoadingProgress((prevProgress) => prevProgress - 2);
+        setLoadingProgress((prevProgress) => prevProgress - 1);
       }, speedUp); // Измените интервал, чтобы соответствовать вашим требованиям
     } else {
       setLoadingProgress(0); // Сброс прогресса загрузки

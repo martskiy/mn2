@@ -1,6 +1,6 @@
 .loader-container {
   margin-top: 25px;
-  width: 80%;
+  width: 100%;
   height: 15px;
   overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
   opacity: 0; /* По умолчанию скрываем лоадер */
@@ -9,6 +9,9 @@
 
 .loader {
   height: 100%;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
   border-radius: 7.5px; /* Закругляем края на половину высоты */
   background-color: rgb(91, 201, 91); /* Зеленый цвет */
   transition: width 1s ease-in-out; /* Анимация изменения ширины */
