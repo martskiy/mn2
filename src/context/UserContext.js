@@ -109,3 +109,5 @@ export const UserProvider = ({ children }) => {
     </UserContext.Provider>
   );
 };
+
+export const useUserContext = () => useContext(UserContext);
