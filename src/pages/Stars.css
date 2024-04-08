@@ -1,47 +1,4 @@
-@keyframes float {
-    0% {
-      transform: translate(0, 0) scale(1);
-    }
-    50% {
-      transform: translate(30px, -30px) scale(1.5);
-    }
-    100% {
-      transform: translate(0, 0) scale(1);
-    }
-  }
-  @keyframes float {
-    0% {
-        transform: translate(0, 0) scale(1);
-    }
-    50% {
-        transform: translate(30px, -30px) scale(1.5);
-    }
-    100% {
-        transform: translate(0, 0) scale(1);
-    }
-}
-
-/* Анимация для звезд */
 @keyframes fly {
-    0% {
-        transform: translate(0px, 0px);
-    }
-    100% {
-        transform: translate(var(--x-end), var(--y-end));
-    }
-}
-
-  /* Базовые стили для звезд */
-  .star {
-    position: fixed;
-    width: 2px;
-    height: 2px;
-    background-color: white;
-    border-radius: 50%;
-  }
-  
-  /* Анимация для звезд */
-  @keyframes fly {
     0% {
       transform: translate(0px, 0px) scale(1);
       opacity: 1;
@@ -52,3 +9,11 @@
     }
   }
   
+  .image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Контейнер займет всю ширину */
+    height: auto; /* Высота контейнера будет определяться содержимым */
+    padding: 10px; /* Добавляет небольшой отступ вокруг изображения */
+  }
