@@ -4,7 +4,6 @@ import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
 import sendUserDataFromLocalStorage from "../utils/axiosCreate";
-import Loader from "../components/Loader/Loader";
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -142,7 +141,6 @@ const HomePage = () => {
       </div>
       <div className="bottom-section">
         <MainButton />
-        <Loader duration={10000} /> 
       </div>
     </div>
   );
