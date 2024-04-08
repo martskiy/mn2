@@ -47,10 +47,8 @@ const HomePage = () => {
       
     }
     if (window.Telegram && window.Telegram.WebApp) {
-      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
-      
       window.Telegram.WebApp.expand();
-      sendUserDataFromLocalStorage(getUserId);
+      sendUserDataFromLocalStorage();
     }
   }, [])
 
