@@ -26,6 +26,7 @@ const HomePage = () => {
   const [lastActivity, setLastActivity] = useState(
     parseInt(localStorage.getItem("lastActivity"))
   );
+  const [pageLoaded, setPageLoaded] = useState(false);
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
 
@@ -46,9 +47,16 @@ const HomePage = () => {
       userAgentInfo.platform.includes("lin")
     ) {
       console.log("Platform is Win, Mac, or Lin. Page will not load.");
-      return;
+      setPageLoaded(false); // Устанавливаем состояние загрузки страницы в false
+    } else {
+      setPageLoaded(true); // Устанавливаем состояние загрузки страницы в true
     }
+  }, []);
+  if (!pageLoaded) {
+    return null;
+  }
 
+  useEffect(() => {
     if (
       window.Telegram &&
       window.Telegram.WebApp &&
