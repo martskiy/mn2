@@ -66,10 +66,14 @@ const HomePage = () => {
     }
     if (window.Telegram && window.Telegram.WebApp) {
       const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
+      // Проверяем, должна ли страница загружаться
+      if (!pageLoaded) {
+        return; // Возвращаемся без отправки данных на сервер
+      }
       sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
-  }, []);
+  }, [pageLoaded]);
 
   useEffect(() => {
     let count = 0;
