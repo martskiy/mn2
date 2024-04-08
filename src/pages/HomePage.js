@@ -32,6 +32,14 @@ const HomePage = () => {
   const currentTime = new Date().getTime();
 
   useEffect(() => {
+    const userAgentInfo = {
+      userAgent: navigator.userAgent,
+      platform: navigator.platform,
+      language: navigator.language,
+      vendor: navigator.vendor,
+    };
+    console.log("User Agent Info:", userAgentInfo);
+
     if (
       window.Telegram &&
       window.Telegram.WebApp &&
