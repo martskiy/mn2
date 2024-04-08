@@ -41,7 +41,7 @@ const HomePage = () => {
       platform.includes("mac") 
     ) {
       console.log("Open on your mobile device");
-      setPageLoaded(false); 
+      setPageLoaded(true); 
     } else {
       setPageLoaded(true); 
     }
