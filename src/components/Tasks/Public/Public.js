@@ -15,22 +15,21 @@ const Public = () => {
       localStorage.setItem('clickedPublic', 'true');
       setTimeout(() => {
         setClicked(true);
-        
       }, 10000); // 10 секунд задержки
     }
   };
 
   return (
-    <div onClick={handleClick}>
+    <div className={clicked ? "disabled" : ""} onClick={handleClick}>
       <a href="https://t.me/mellcoinsapp/489" className="task-skin-container">
         <img src={telegram} alt="Dog Skin" className="task-skin-image" />
         <div className="task-skin-info">
           <p className="task-skin-name">Подпишись на канал MELLCOIN</p>
-          <p className="task-skin-price">{clicked ? "получено" : "1.00 MELL"} </p>
+          <p className="task-skin-price">{clicked ? "получено" : "1.00 MELL"}</p>
         </div>
       </a>
     </div>
   );
-  
-}
+};
+
 export default Public;
