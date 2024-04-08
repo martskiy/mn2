@@ -21,20 +21,16 @@ const Public = () => {
   };
 
   return (
-    <div className={` ${clicked ? 'disabled' : ''}`} onClick={handleClick}>
-      {clicked ? (
-        <div className="checked-icon">1.00 MELL получено &#10003;</div>
-      ) : (
-        <a href="https://t.me/mellcoinsapp/489" className="task-skin-container">
-          <img src={telegram} alt="Dog Skin" className="task-skin-image" />
-          <div className="task-skin-info">
-            <p className="task-skin-name">Подпишись на канал MELLCOIN</p>
-            <p className="task-skin-price">1.00 MELL</p>
-          </div>
-        </a>
-      )}
+    <div onClick={handleClick}>
+      <a href="https://t.me/mellcoinsapp/489" className="task-skin-container">
+        <img src={telegram} alt="Dog Skin" className="task-skin-image" />
+        <div className="task-skin-info">
+          <p className="task-skin-name">Подпишись на канал MELLCOIN</p>
+          <p className="task-skin-price">{clicked ? "получено" : "1.00 MELL"} </p>
+        </div>
+      </a>
     </div>
   );
-};
-
+  
+}
 export default Public;
