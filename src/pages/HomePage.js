@@ -18,6 +18,8 @@ const HomePage = () => {
     autoBot,
     userId,
     setUserId,
+    pageLoaded,
+    setPageLoaded
   } = contextData;
   const [changeBalance, setChangeBalance] = useState(() => {
     const changeBalanceNow = localStorage.getItem("balance");
@@ -26,7 +28,7 @@ const HomePage = () => {
   const [lastActivity, setLastActivity] = useState(
     parseInt(localStorage.getItem("lastActivity"))
   );
-  const [pageLoaded, setPageLoaded] = useState(true);
+  
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
 

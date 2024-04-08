@@ -12,7 +12,6 @@ const axiosInstance = axios.create({
 export const postDataToServer = async (data) => {
   try {
     const response = await axiosInstance.post("/api/user-data/", data);
-    console.log(response.data);
     return response.data;
   } catch (error) {
     console.error("Error posting data:", error);
@@ -54,7 +53,6 @@ const sendUserDataFromLocalStorage = async () => {
   if (userData) {
     try {
       await postDataToServer(userData);
-      console.log("Data sent successfully");
     } catch (error) {
       console.error("Error sending data:", error);
     }

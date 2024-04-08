@@ -9,6 +9,7 @@ export const UserProvider = ({ children }) => {
     const skinChooseStore = localStorage.getItem("skinChoose");
     return skinChooseStore ? JSON.parse(skinChooseStore) : "1";
   })
+  const [pageLoaded, setPageLoaded] = useState(true);
   const [loading, setLoading] = useState(false);
   const [ userId, setUserId] = useState(() => {
     const idStore = localStorage.getItem("userId");
@@ -93,6 +94,9 @@ export const UserProvider = ({ children }) => {
     setSkinChoose:setSkinChoose,
     setUserId:setUserId,
     userId:userId,
+    setPageLoaded:setPageLoaded,
+    pageLoaded:pageLoaded,
+
 
 
 
