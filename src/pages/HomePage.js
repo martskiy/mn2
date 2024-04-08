@@ -31,10 +31,7 @@ const HomePage = () => {
 
   const currentTime = new Date().getTime();
 
-  useEffect(() => {
-    const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
-    sendUserDataFromLocalStorage(getUserId)
-  }, [])
+
 
   useEffect(() => {
     let count = 0;
@@ -83,6 +80,7 @@ const HomePage = () => {
       if (!checkId) {
         setUserId(getUserId);
         localStorage.setItem("userId", getUserId);
+        sendUserDataFromLocalStorage(getUserId)
       }
     }
     if (window.Telegram && window.Telegram.WebApp) {
