@@ -28,7 +28,10 @@ export const UserProvider = ({ children }) => {
     const autoBotStore = localStorage.getItem("autoBot");
     return autoBotStore ? JSON.parse(autoBotStore) : false;
   });
-  const [balance, setBalance] = useState(0);
+  const [balance, setBalance] = useState(() => {
+    const storedUserState = localStorage.getItem("balance");
+    return storedUserState ? JSON.parse(storedUserState) : 0;
+  });
   const [bonus, setBonus] = useState(() => {
     const bonusStore = localStorage.getItem("bonus");
     return bonusStore ? JSON.parse(bonusStore) : false;
