@@ -32,6 +32,7 @@ const HomePage = () => {
   
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
+  const [progress, setProgress] = useState(0);
 
   const currentTime = new Date().getTime();
 
@@ -141,7 +142,7 @@ const HomePage = () => {
       </div>
       <div className="bottom-section">
         <MainButton />
-        {(hundred || fiveHundred) && <Loader />}
+        {(hundred || fiveHundred) && <Loader visible={true} />}
       </div>
     </div>
   );

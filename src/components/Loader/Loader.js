@@ -1,38 +1,29 @@
-import React, { useState, useEffect, useContext } from 'react';
-import './Loader.css'; 
-import  UserContext  from '../../context/UserContext'; 
+import React, { useState, useEffect } from "react";
+import "./Loader.css";
 
-const Loader = () => {
-  const { speed, hundred, fiveHundred } = useContext(UserContext); 
-
-  const [progress, setProgress] = useState(100); 
+const Loader = ({ visible }) => {
+  const [loadingProgress, setLoadingProgress] = useState(0);
 
   useEffect(() => {
-    const loadingTime = speed ? 5 : 10; 
-
-    const interval = setInterval(() => {
-      setProgress(prevProgress => {
-        return prevProgress - (1 / loadingTime) * 100;
-      });
-    }, 1000);
-
-    return () => clearInterval(interval); 
-  }, [speed, hundred, fiveHundred]); // Добавляем isPressed в массив зависимостей
-
-  useEffect(() => {
-    if (fiveHundred || hundred) {
-      const loadingTime = speed ? 5 : 10; 
-
-      const timeout = setTimeout(() => {
-        setProgress(0);
-      }, loadingTime * 1000);
-      return () => clearTimeout(timeout); 
+    let intervalID;
+    if (visible) {
+      intervalID = setInterval(() => {
+        setLoadingProgress((prevProgress) => prevProgress + 1);
+      }, 10); // Измените интервал, чтобы соответствовать вашим требованиям
+    } else {
+      setLoadingProgress(0); // Сброс прогресса загрузки
+      clearInterval(intervalID); // Остановка интервала
     }
-  }, [hundred, fiveHundred, speed]);
+
+    return () => clearInterval(intervalID); // Очистка интервала при размонтировании компонента
+  }, [visible]);
 
   return (
-    <div className="loader-container">
-      <div className="loader" style={{ width: `${progress}%` }}></div>
+    <div className={`loader-container ${visible ? "visible" : ""}`}>
+      <div
+        className="loader"
+        style={{ width: `${loadingProgress}%` }}
+      ></div>
     </div>
   );
 };

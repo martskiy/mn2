@@ -3,6 +3,8 @@
   width: 100%;
   height: 15px;
   overflow: hidden; /* Скрываем часть загрузки, выходящую за границы контейнера */
+  opacity: 0; /* По умолчанию скрываем лоадер */
+  transition: opacity 1s ease-in-out; /* Анимация появления/исчезновения */
 }
 
 .loader {
@@ -10,4 +12,8 @@
   border-radius: 7.5px; /* Закругляем края на половину высоты */
   background-color: rgb(91, 201, 91); /* Зеленый цвет */
   transition: width 1s ease-in-out; /* Анимация изменения ширины */
+}
+
+.loader-container.visible {
+  opacity: 1; /* Показываем лоадер, когда компонент видим */
 }
