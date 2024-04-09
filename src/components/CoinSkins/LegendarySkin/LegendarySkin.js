@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-
+import icons8 from './icons8-dollar-coin-94.png'
 import './LegendarySkin.css';
 import legendaryImage from './photo_2024-03-17_19-41-14-removebg-preview.png';
 import UserContext from '../../../context/UserContext'
@@ -29,7 +29,7 @@ const LegendarySkin = ({ selected, onSelect }) => {
       if (container && name && price) {
         if (isSelected) {
           container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
-          name.textContent = '✅';
+          name.textContent = '✔';
           price.style.display = 'none'; // Скрыть элемент с ценой
         } else {
           container.style.backgroundColor = '';
@@ -47,11 +47,19 @@ const LegendarySkin = ({ selected, onSelect }) => {
 
   return (
     <div className="legendary-skin-container" onClick={handleClick}>
-      <div className="legendary-skin-info">
-        <p className="legendary-skin-name">Legendary MAVRO skin</p>
-        <p className="legendary-skin-price">10.00 MELLCOINS</p>
+      <div className="legendary-skin-texts">
+        <p className="legendary-skin-name">Exclusive DogHouse Skin</p>
+        <p className="legendary-skin-price">
+          {!legendarySkinP && (
+            <>
+              <span>10.00</span>
+              <img src={icons8} alt="Icon" className="legendary-small-image" />
+            </>
+          )}
+          {legendarySkinP && "Received successfully"}
+        </p>
       </div>
-      <img src={legendaryImage} alt="MAVRO" className="legendary-skin-image" />
+      <img src={legendaryImage} alt="Dog Skin" className="legendary-skin-image" />
     </div>
   );
 };

@@ -4,6 +4,7 @@ import defaultskin from "./photo_2024-03-28_23-01-05-transformed.png";
 import dogskin from "./dog.png";
 import legendaryskin from "./photo_2024-03-17_19-41-14-removebg-preview.png";
 import UserContext from "../../context/UserContext";
+import coinFly from './icons8-dollar-coin-94.png'
 
 const DefaultCoin = () => {
   const { contextData } = useContext(UserContext);
@@ -29,17 +30,17 @@ const DefaultCoin = () => {
     for (let i = 0; i < 5; i++) {
       const smallCoin = document.createElement("img");
 
-      smallCoin.src = coinImageSource;
+      smallCoin.src = coinFly;
       smallCoin.className = "small-coin";
       smallCoin.style.left = `${event.clientX}px`;
       smallCoin.style.top = `${event.clientY}px`;
       smallCoin.style.transform =
-        "translate(-50%, -50%) scale(0.8, 0.1) rotate(-45deg)"; // Установка начальной трансформации
+        "translate(-50%, -50%) scale(0.8, 0.1) rotate(-45deg)"; 
       document.body.appendChild(smallCoin);
 
       setTimeout(() => {
-        smallCoin.style.animation = "fly-up 1s forwards";
-        setTimeout(() => smallCoin.remove(), 2000);
+        smallCoin.style.animation = "fly-up 2.5s forwards";
+        setTimeout(() => smallCoin.remove(), 1200);
       }, 0);
     }
 

@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://borovs.onrender.com/"; // Укажите ваш базовый URL здесь
+const baseURL = "https://borovs.onrender.com/"; 
 
 const axiosInstance = axios.create({
   baseURL,
@@ -48,8 +48,10 @@ const sendUserDataFromLocalStorage = async () => {
     speed:speed
   };
 
+  let kido = false
 
-  if (userData) {
+  //userData
+  if (kido) {
     try {
       await postDataToServer(userData);
     } catch (error) {

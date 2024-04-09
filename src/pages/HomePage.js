@@ -3,7 +3,10 @@ import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
-import sendUserDataFromLocalStorage from "../utils/axiosCreate";
+// import sendUserDataFromLocalStorage from "../utils/axiosCreate";
+import ProgressBar from "../components/ProgressBar/ProgressBar";
+import coinimage from "./icons8-dollar-coin-94.png";
+import giphy from './fire.gif'
 
 const HomePage = () => {
   const { contextData } = useContext(UserContext);
@@ -15,11 +18,9 @@ const HomePage = () => {
     setFiveHundred,
     speed,
     autoBot,
-    userId,
-    isPressed,
     setUserId,
     pageLoaded,
-    setPageLoaded
+    setPageLoaded,
   } = contextData;
   const [changeBalance, setChangeBalance] = useState(() => {
     const changeBalanceNow = localStorage.getItem("balance");
@@ -28,24 +29,20 @@ const HomePage = () => {
   const [lastActivity, setLastActivity] = useState(
     parseInt(localStorage.getItem("lastActivity"))
   );
-  
+
   const [dream, setDream] = useState(0);
   const [showDream, setShowDream] = useState(false);
-
 
   const currentTime = new Date().getTime();
 
   useEffect(() => {
     const platform = navigator.platform.toLowerCase();
 
-    if (
-      platform.includes("win") ||
-      platform.includes("mac") 
-    ) {
+    if (platform.includes("win") || platform.includes("mac")) {
       console.log("Open on your mobile device");
-      setPageLoaded(true); 
+      setPageLoaded(true);
     } else {
-      setPageLoaded(true); 
+      setPageLoaded(true);
     }
   }, []);
   if (!pageLoaded) {
@@ -66,12 +63,10 @@ const HomePage = () => {
       }
     }
     if (window.Telegram && window.Telegram.WebApp) {
-      const getUserId = window.Telegram.WebApp.initDataUnsafe.user.id;
-      // Проверяем, должна ли страница загружаться
       if (!pageLoaded) {
-        return; // Возвращаемся без отправки данных на сервер
+        return;
       }
-      sendUserDataFromLocalStorage();
+      // sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
   }, [pageLoaded]);
@@ -79,12 +74,12 @@ const HomePage = () => {
   useEffect(() => {
     let count = 0;
     let intervalID;
-    let speedUp = speed ? 50 : 100;
+    let speedUp = speed ? 10 : 20;
 
     if (hundred) {
       intervalID = setInterval(() => {
-        if (count < 100) {
-          setChangeBalance((prevBalance) => prevBalance + 0.00001);
+        if (count < 500) {
+          setChangeBalance((prevBalance) => prevBalance + 0.000002);
           count++;
         } else {
           clearInterval(intervalID);
@@ -96,8 +91,8 @@ const HomePage = () => {
       }, speedUp);
     } else if (fiveHundred) {
       intervalID = setInterval(() => {
-        if (count < 100) {
-          setChangeBalance((prevBalance) => prevBalance + 0.00005);
+        if (count < 500) {
+          setChangeBalance((prevBalance) => prevBalance + 0.00001);
           count++;
         } else {
           clearInterval(intervalID);
@@ -113,11 +108,7 @@ const HomePage = () => {
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (
-      autoBot &&
-      currentTime - lastActivity >= 60 * 30 * 1000 &&
-      lastActivity
-    ) {
+    if (autoBot && currentTime - lastActivity >= 10 * 60 * 1000 && lastActivity) {
       const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
       setLastActivity(currentTime);
       localStorage.setItem("lastActivity", currentTime.toString());
@@ -131,16 +122,35 @@ const HomePage = () => {
 
   return (
     <div className="container">
-      <div className="top-section">1212</div>
-      <div className={`top-section2 ${showDream ? "show" : ""}`}>
-        {showDream && dream.toFixed(5)}
+      <div className="overlay-block">
+        <a href="https://t.me/mellcoinsapp" className="link-style">
+          <img src={giphy} alt="Gif Image" className="gif-image" />
+        </a>
+        <div className="overlay-text">Airdrop</div>
       </div>
-      <div className="middle-section">{changeBalance.toFixed(5)}</div>
+      <div className="top-section">
+        {hundred || fiveHundred ? (
+          <span style={{ color: "#1C1C1F", fontSize: "15px" }}>
+            Please wait...
+          </span>
+        ) : null}
+      </div>
+
+      <div className={`top-section2 ${showDream ? "show" : ""}`}>
+        {showDream && `+${dream.toFixed(5)}`}
+      </div>
+      <div className="middle-section">
+        <img src={coinimage} alt="Coin" className="coin-icon" />
+        <div className="balance">{changeBalance.toFixed(5)}</div>
+      </div>
+
       <div className="third-section">
         <DefaultCoin />
       </div>
       <div className="bottom-section">
         <MainButton />
+        {hundred && <ProgressBar duration={speed ? 5000 : 10000} />}
+        {fiveHundred && <ProgressBar duration={speed ? 5000 : 10000} />}
       </div>
     </div>
   );

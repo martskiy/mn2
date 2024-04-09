@@ -2,6 +2,7 @@ import React, { useContext, useState } from "react";
 import "./Kick.css";
 import kickLogo from "./Kick_logo.svg.png";
 import UserContext from "../../../context/UserContext";
+import icons8 from './icons8-dollar-coin-94.png'
 
 const Kick = () => {
   const { contextData } = useContext(UserContext);
@@ -21,20 +22,25 @@ const Kick = () => {
   };
 
   return (
-    <div className={` ${clicked ? 'disabled' : ''}`} onClick={handleClick}>
-      {clicked ? (
-        <div className="checked-icon-kick">2.00 MELL получено &#10003;</div>
-      ) : (
+    <div className={clicked ? "disabled" : ""} onClick={handleClick}>      
         <a href="https://kick.com/mellstroy271" className="kick-skin-container">
           <img src={kickLogo} alt="Dog Skin" className="kick-skin-image" />
           <div className="kick-skin-info">
-            <p className="kick-skin-name">Подпишись на Kick MELSTROY</p>
-            <p className="kick-skin-price">2.00 MELL</p>
+            <p className="kick-skin-name">Подпишись на Kick MELLSTROY</p>
+            <div className="kick-skin-price">
+              {!clicked && (
+                <>
+                  <img src={icons8} alt="Icon" className="kick-small-image" />
+                  <span>2.00</span>
+                </>
+              )}
+              {clicked && "получено"}
+            </div>
           </div>
         </a>
-      )}
     </div>
   );
 };
-
 export default Kick;
+
+

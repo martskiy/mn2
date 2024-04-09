@@ -3,6 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import './DogSkin.css';
 import dogImage from './dog.png';
 import UserContext from '../../../context/UserContext';
+import icons8 from './icons8-dollar-coin-94.png'
 
 const DogSkin = ({ selected, onSelect }) => {
   const [isSelected, setIsSelected] = useState(selected);
@@ -29,8 +30,9 @@ const DogSkin = ({ selected, onSelect }) => {
     if (container && name && price) {
       if (isSelected) {
         container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
-        name.textContent = '✅';
-        price.style.display = 'none'; // Скрыть элемент с ценой
+        name.textContent = '✔';
+        price.style.display = 'none';
+        name.style.marginBottom = '0px'
       } else {
         container.style.backgroundColor = '';
         name.textContent = 'Exclusive DogHouse Skin';
@@ -45,9 +47,17 @@ const DogSkin = ({ selected, onSelect }) => {
 
   return (
     <div className="dog-skin-container" onClick={handleClick}>
-      <div className="dog-skin-info">
-        <p className="dog-skin-name">Dog Skin</p>
-        <p className="dog-skin-price">25.00 MELLCOINS</p>
+      <div className="dog-skin-texts">
+        <p className="dog-skin-name">Exclusive DogHouse Skin</p>
+        <p className="dog-skin-price">
+          {!dogSkinP && (
+            <>
+              <span>25.00</span>
+              <img src={icons8} alt="Icon" className="dog-small-image" />
+            </>
+          )}
+          {dogSkinP && "Received successfully"}
+        </p>
       </div>
       <img src={dogImage} alt="Dog Skin" className="dog-skin-image" />
     </div>

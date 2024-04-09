@@ -30,13 +30,15 @@
     width: 86%;
     height: 15px;
     display: flex;
-    font-size: 30px;
+    font-size: 40px;
     justify-content: center;
     align-items: center;
     margin-bottom: 35px;
+    margin-top: 25px;
   }
   
   .task-components {
+    margin-top: 35px;
     width: 92%;
   }
   

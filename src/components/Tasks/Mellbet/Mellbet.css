@@ -20,11 +20,21 @@
     text-align: right; /* Центрируем текст */
   }
   
+  .mellbet-small-image {
+    width: 20%; /* Установка ширины на 25% */
+    height: auto;
+    margin-right: 5px;
+    
+  }
+  
   .mellbet-skin-price {
-    color: rgb(69, 122, 88);
-    font-size: 17px;
-    margin-top: 0;
-    text-align: right;
+    color: rgb(214, 166, 56);
+    font-size: 25px;
+    font-family: "Konkhmer Sleokchher", system-ui;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Выравнивание содержимого по правому краю */
+    text-align: right; /* Удаляем, так как не требуется */
   }
   .mellbet-skin-info p{
     margin: 3px;
