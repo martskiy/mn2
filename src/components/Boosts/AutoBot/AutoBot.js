@@ -1,12 +1,13 @@
 import React, { useContext, useState } from 'react';
 import './AutoBot.css';
 import UserContext from '../../../context/UserContext';
+import iconcoin from './icons8-dollar-coin-94.png'
 
 const AutoBot = () => {
   const { contextData } = useContext(UserContext);
   const { autoBot, setAutoBot, balance, setBalance } = contextData;
   const [buttonText, setButtonText] = useState('Auto Bot');
-  const [buttonText2, setButtonText2] = useState('25.00 MELLCOINS');
+  const [buttonText2, setButtonText2] = useState('25.00');
   const [buttonColor, setButtonColor] = useState('');
 
   const handleClick = () => {
@@ -24,7 +25,7 @@ const AutoBot = () => {
       // Revert button text and color after 1 second
       setTimeout(() => {
         setButtonText('Auto Bot');
-        setButtonText2('25.00 MELLCOINS')
+        setButtonText2('25.00')
         setButtonColor('');
       }, 1000);
     }
@@ -33,8 +34,8 @@ const AutoBot = () => {
   return (
     <div className="auto-bot-container" onClick={handleClick} style={{ backgroundColor: buttonColor }}>
       <div className="auto-bot-info">
-        <p className="auto-bot-name">{buttonText}</p>
-        <p className="auto-bot-price">{buttonText2}</p>
+        <div className="auto-bot-name">{buttonText}</div>
+        <div className="auto-bot-price"><span>{buttonText2}</span><img src={iconcoin} alt="Icon" className="auto-small-image" /></div>
       </div>
     </div>
   );

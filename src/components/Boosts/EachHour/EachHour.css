@@ -23,9 +23,17 @@
     margin: 5px 0;
   }
   
-.each-hour-price {
+  .each-bot-price {
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 5px;
     text-align: center;
+  }
+
+  .each-small-image {
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 1px;
+    margin-top: -2px;
+    width: 13%; 
   }

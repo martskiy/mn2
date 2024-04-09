@@ -25,11 +25,19 @@
     margin: 5px 0; /* Устанавливаем отступ сверху и снизу для параграфов */
   }
   
-  .speed-boost-price {
+  .speed-bot-price {
     color: white;
-    font-size: 10px;
-    margin-top: 5px; /* Устанавливаем верхний отступ */
-    text-align: center; /* Выравниваем текст по центру */
+    font-size: 12px;
+    margin-top: 5px;
+    text-align: center;
+  }
+
+  .speed-small-image {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-top: -2px;
+    width: 12%; 
   }
   
   

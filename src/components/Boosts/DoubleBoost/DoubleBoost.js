@@ -1,13 +1,14 @@
 import React, { useContext, useState } from 'react';
 import './DoubleBoost.css';
 import UserContext from '../../../context/UserContext';
+import iconcoin from './icons8-dollar-coin-94.png'
 
 
 const DoubleBoost = () => {
   const { contextData } = useContext(UserContext);
   const { bust, setBust, balance, setBalance } = contextData;
   const [buttonText, setButtonText] = useState('Double Boost X5');
-  const [buttonText2, setButtonText2] = useState('15.00 MELLCOINS');
+  const [buttonText2, setButtonText2] = useState('15.00');
   const [buttonColor, setButtonColor] = useState('');
 
   const handleClick = () => {
@@ -25,7 +26,7 @@ const DoubleBoost = () => {
       // Revert button text and color after 1 second
       setTimeout(() => {
         setButtonText('Double Boost X5');
-        setButtonText2('15.00 MELLCOINS')
+        setButtonText2('15.00')
         setButtonColor('');
       }, 1000);
     }
@@ -34,8 +35,8 @@ const DoubleBoost = () => {
   return (
     <div className="double-boost-container" onClick={handleClick} style={{ backgroundColor: buttonColor }}>
         <div className="double-boost-info">
-          <p className="double-boost-name">{buttonText}</p>
-          <p className="double-boost-price">{buttonText2}</p>
+          <div className="double-boost-name">{buttonText}</div>
+          <div className="double-bot-price"><span>{buttonText2}</span><img src={iconcoin} alt="Icon" className="double-small-image" /></div>
         </div>
     </div>
   );

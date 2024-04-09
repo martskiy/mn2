@@ -23,9 +23,17 @@
     margin: 5px 0;
   }
   
-.double-boost-price {
+  .double-bot-price {
     color: white;
-    font-size: 10px;
+    font-size: 12px;
     margin-top: 5px;
     text-align: center;
+  }
+
+  .double-small-image {
+    display: inline-block;
+    vertical-align: middle;
+
+    margin-top: -2px;
+    width: 12%; 
   }
