@@ -18,28 +18,35 @@
   align-items: flex-start; /* Выравнивание элементов по левому краю */
 }
 .dog-skin-texts p{
-  margin: 0;
+  margin: 0 5px;
 }
 
-.dog-skin-name {
-  
-   /* Отступ снизу */
-}
 
 .dog-skin-price {
-  display: flex;
+  display: inline-block;
   font-size: 12px;
-  align-items: center; /* Центрирование элементов внутри */
 }
 
-.dog-skin-price span {
-  margin-right: 5px; /* Отступ справа */
-  font-size: 15px;
+.text-content {
+  display: inline-block;
+  margin-right: 5px; /* Отступ справа от текста */
 }
+
+.dog-small-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -5px;
+  margin-top: -2px;
+  width: 14%; /* Отступ слева от изображения */
+}
+
+
+
 
 .dog-skin-image {
   width: 21%; /* Максимальная ширина изображения */
 }
-.dog-small-image { 
-  width: 12%;
+
+.dog-big-image{
+  width: 25%;
 }

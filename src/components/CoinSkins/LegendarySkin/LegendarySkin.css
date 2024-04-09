@@ -18,27 +18,35 @@
   align-items: flex-start; /* Выравнивание элементов по левому краю */
 }
 .legendary-skin-texts p{
-  margin: 0;
+  margin: 0 5px;
 }
 
-.legendary-skin-name {
-
-}
 
 .legendary-skin-price {
-  display: flex;
+  display: inline-block;
   font-size: 12px;
-  align-items: center; /* Центрирование элементов внутри */
 }
 
-.legendary-skin-price span {
-  margin-right: 5px;
-  font-size: 15px;
+.text-content {
+  display: inline-block;
+  margin-right: 5px; /* Отступ справа от текста */
 }
+
+.legendary-small-image {
+  display: inline-block;
+  vertical-align: middle;
+  margin-left: -5px;
+  margin-top: -2px;
+  width: 14%; /* Отступ слева от изображения */
+}
+
+
+
 
 .legendary-skin-image {
   width: 21%; /* Максимальная ширина изображения */
 }
-.legendary-small-image { 
-  width: 12%;
+
+.legendary-big-image{
+  width: 25%;
 }

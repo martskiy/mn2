@@ -3,6 +3,7 @@ import icons8 from './icons8-dollar-coin-94.png'
 import './LegendarySkin.css';
 import legendaryImage from './photo_2024-03-17_19-41-14-removebg-preview.png';
 import UserContext from '../../../context/UserContext'
+import galachka from './icons8-approval-94.png'
 
 const LegendarySkin = ({ selected, onSelect }) => {
   const [isSelected, setIsSelected] = useState(selected);
@@ -30,7 +31,7 @@ const LegendarySkin = ({ selected, onSelect }) => {
         if (isSelected) {
           container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
           // Replace text content with icons8 image
-          name.innerHTML = `<img src="${icons8}" alt="Icon" class="legendary-small-image" />`;
+          name.innerHTML = `<img src="${galachka}" alt="Icon" class="legendary-big-image" />`;
           price.style.display = 'none';
         } else {
           container.style.backgroundColor = '';
@@ -50,20 +51,21 @@ const LegendarySkin = ({ selected, onSelect }) => {
   return (
     <div className="legendary-skin-container" onClick={handleClick}>
       <div className="legendary-skin-texts">
-        <p className="legendary-skin-name">Exclusive DogHouse Skin</p>
-        <p className="legendary-skin-price">
+        <div className="legendary-skin-name">Exclusive DogHouse Skin</div>
+        <div className="legendary-skin-price">
           {!legendarySkinP && (
             <>
-              <span>10.00</span>
+              <span className="text-content">25.00</span>
               <img src={icons8} alt="Icon" className="legendary-small-image" />
             </>
           )}
           {legendarySkinP && "Received successfully"}
-        </p>
+        </div>
       </div>
       <img src={legendaryImage} alt="Dog Skin" className="legendary-skin-image" />
     </div>
   );
+  
 };
 
 export default LegendarySkin;
