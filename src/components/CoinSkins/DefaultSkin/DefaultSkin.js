@@ -19,7 +19,7 @@ const DefaultSkin = ({ selected, onSelect }) => {
     if (container && name) {
       if (isSelected) {
         container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
-        name.textContent = '✔';
+        name.innerHTML = `<img src="${icons8}" alt="Icon" class="legendary-small-image" />`;
       } else {
         container.style.backgroundColor = '';
         name.textContent = 'Default MELLCOIN';

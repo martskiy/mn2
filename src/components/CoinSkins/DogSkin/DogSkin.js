@@ -30,9 +30,8 @@ const DogSkin = ({ selected, onSelect }) => {
     if (container && name && price) {
       if (isSelected) {
         container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
-        name.textContent = '✔';
+        name.innerHTML = `<img src="${icons8}" alt="Icon" class="legendary-small-image" />`;
         price.style.display = 'none';
-        name.style.marginBottom = '0px'
       } else {
         container.style.backgroundColor = '';
         name.textContent = 'Exclusive DogHouse Skin';

@@ -17,10 +17,12 @@
   flex-direction: column; /* Элементы располагаются в столбец */
   align-items: flex-start; /* Выравнивание элементов по левому краю */
 }
+.legendary-skin-texts p{
+  margin: 0;
+}
 
 .legendary-skin-name {
-  margin-bottom: -10px;
-   /* Отступ снизу */
+
 }
 
 .legendary-skin-price {
@@ -30,12 +32,13 @@
 }
 
 .legendary-skin-price span {
-  margin-right: 5px; /* Отступ справа */
+  margin-right: 5px;
+  font-size: 15px;
 }
 
 .legendary-skin-image {
   width: 21%; /* Максимальная ширина изображения */
 }
 .legendary-small-image { 
-  width: 9%;
+  width: 12%;
 }

@@ -17,6 +17,9 @@
   flex-direction: column; /* Элементы располагаются в столбец */
   align-items: flex-start; /* Выравнивание элементов по левому краю */
 }
+.dog-skin-texts p{
+  margin: 0;
+}
 
 .dog-skin-name {
   
@@ -31,11 +34,12 @@
 
 .dog-skin-price span {
   margin-right: 5px; /* Отступ справа */
+  font-size: 15px;
 }
 
 .dog-skin-image {
   width: 21%; /* Максимальная ширина изображения */
 }
 .dog-small-image { 
-  width: 9%;
+  width: 12%;
 }

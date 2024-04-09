@@ -24,20 +24,22 @@ const LegendarySkin = ({ selected, onSelect }) => {
     useEffect(() => {
       const container = document.querySelector('.legendary-skin-container');
       const name = document.querySelector('.legendary-skin-name');
-      const price = document.querySelector('.legendary-skin-price'); // Добавлено получение элемента с классом legendary-skin-price
-    
+      const price = document.querySelector('.legendary-skin-price');
+      
       if (container && name && price) {
         if (isSelected) {
           container.style.backgroundColor = 'rgba(56, 51, 51, 0.1)';
-          name.textContent = '✔';
-          price.style.display = 'none'; // Скрыть элемент с ценой
+          // Replace text content with icons8 image
+          name.innerHTML = `<img src="${icons8}" alt="Icon" class="legendary-small-image" />`;
+          price.style.display = 'none';
         } else {
           container.style.backgroundColor = '';
           name.textContent = 'Legendary MAVRO skin';
-          price.style.display = 'block'; // Показать элемент с ценой
+          price.style.display = 'block';
         }
       }
     }, [isSelected]);
+    
     
 
   useEffect(() => {
