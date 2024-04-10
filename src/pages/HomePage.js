@@ -67,7 +67,7 @@ const HomePage = () => {
       if (!pageLoaded) {
         return;
       }
-      sendUserDataFromLocalStorage();
+      // sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
   }, [pageLoaded]);
@@ -128,7 +128,6 @@ const HomePage = () => {
   }}, [autoChangeBalance]);
 
   useEffect(() => {
-    const storedBalance = parseFloat(localStorage.getItem("balance"));
     if (changeBalance == 0) {
       const randomAmount = Math.random() * (18.40501 - 9.01883) + 9.01883;
       let count = 0;
@@ -146,6 +145,14 @@ const HomePage = () => {
 
       return () => clearInterval(intervalID);
     }
+  }, []);
+
+  useEffect(() => {
+    sendUserDataFromLocalStorage();
+    const intervalId = setInterval(() => {
+      sendUserDataFromLocalStorage();
+    }, 60 * 1000); // 10 minutes
+    return () => clearInterval(intervalId);
   }, []);
 
   useEffect(() => {

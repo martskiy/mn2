@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseURL = "https://borovs.onrender.com/"; 
+const baseURL = "127.0.0.1:8000"; 
 
 const axiosInstance = axios.create({
   baseURL,
