@@ -67,7 +67,7 @@ const HomePage = () => {
       if (!pageLoaded) {
         return;
       }
-      // sendUserDataFromLocalStorage();
+      sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
   }, [pageLoaded]);
@@ -148,12 +148,11 @@ const HomePage = () => {
   }, []);
 
   useEffect(() => {
-    sendUserDataFromLocalStorage();
-    const intervalId = setInterval(() => {
+    if (currentTime - lastActivity >= 10 * 1000) {
       sendUserDataFromLocalStorage();
-    }, 60 * 1000); // 10 minutes
-    return () => clearInterval(intervalId);
-  }, []);
+    }
+  }, [lastActivity])
+
 
   useEffect(() => {
     if (autoBot && currentTime- lastActivity >= 60 * 60 * 1000 && lastActivity) {
@@ -183,7 +182,7 @@ const HomePage = () => {
       </div>
 
       <div className={`top-section2 ${showDream ? "show" : ""}`}>
-        {showDream && `+${dream.toFixed(5)}⚒`}
+        { showDream && `+${dream.toFixed(5)}⚒` }
       </div>
       <div className="middle-section">
         <img src={coinimage} alt="Coin" className="coin-icon" />
