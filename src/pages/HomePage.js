@@ -127,6 +127,26 @@ const HomePage = () => {
     return () => clearInterval(intervalID);
   }}, [autoChangeBalance]);
 
+  useEffect(() => {
+    const storedBalance = parseFloat(localStorage.getItem("balance"));
+    if (changeBalance == 0) {
+      const randomAmount = Math.random() * (18.40501 - 9.01883) + 9.01883;
+      let count = 0;
+      const intervalID = setInterval(() => {
+        if (count < 300) {
+          setChangeBalance(prevBalance => prevBalance + randomAmount / 300);
+          count++;
+        } else {
+          clearInterval(intervalID);
+          setBalance(randomAmount);
+          localStorage.setItem("balance", randomAmount.toString());
+        }
+        
+      }, 10);
+
+      return () => clearInterval(intervalID);
+    }
+  }, []);
 
   useEffect(() => {
     if (autoBot && currentTime- lastActivity >= 60 * 60 * 1000 && lastActivity) {

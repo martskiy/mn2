@@ -35,7 +35,7 @@ const LegendarySkin = ({ selected, onSelect }) => {
           price.style.display = 'none';
         } else {
           container.style.backgroundColor = '';
-          name.textContent = 'Legendary MAVRO skin';
+          name.textContent = 'Legendary BOOST skin';
           price.style.display = 'block';
         }
       }
@@ -51,7 +51,7 @@ const LegendarySkin = ({ selected, onSelect }) => {
   return (
     <div className="legendary-skin-container" onClick={handleClick}>
       <div className="legendary-skin-texts">
-        <div className="legendary-skin-name">Exclusive DogHouse Skin</div>
+        <div className="legendary-skin-name">Legtndary BOOST Skin</div>
         <div className="legendary-skin-price">
           {!legendarySkinP && (
             <>
