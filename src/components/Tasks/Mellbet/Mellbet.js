@@ -12,7 +12,7 @@ const Mellbet = () => {
       <img src={mellBet} alt="Mellbet Skin" className="mellbet-skin-image" />
 
       <div className="mellbet-skin-info">
-        <p className="mellbet-skin-name">Создай аккаунт на MellBet</p>
+        <p className="mellbet-skin-name">Создать аккаунт на MellBet</p>
         <p className="mellbet-skin-price">
           <>
             <img src={icons8} alt="Icon" className="mellbet-small-image" />
