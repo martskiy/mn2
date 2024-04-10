@@ -31,6 +31,7 @@ const HomePage = () => {
   );
 
   const [dream, setDream] = useState(0);
+  const [autoChangeBalance, setAutoChangeBalance] = useState(0);
   const [showDream, setShowDream] = useState(false);
 
   const currentTime = new Date().getTime();
@@ -102,17 +103,35 @@ const HomePage = () => {
           localStorage.setItem("lastActivity", currentTime.toString());
         }
       }, speedUp);
-    }
+    } 
 
     return () => clearInterval(intervalID);
   }, [fiveHundred, hundred, speed]);
 
   useEffect(() => {
-    if (autoBot && currentTime - lastActivity >= 10 * 60 * 1000 && lastActivity) {
-      const amountTime = (currentTime - lastActivity) / 1000; // Difference in seconds
-      setLastActivity(currentTime);
-      localStorage.setItem("lastActivity", currentTime.toString());
-      setChangeBalance((prevBalance) => prevBalance + amountTime * 0.0001);
+    let count = 0;
+    let intervalID;
+    if (autoChangeBalance > 0) {
+      intervalID = setInterval(() => {
+        if (count < 300) {
+          setChangeBalance((prevBalance) => prevBalance + (autoChangeBalance / 300));
+          count++;
+        } else {
+          clearInterval(intervalID);
+          setLastActivity(currentTime);
+          localStorage.setItem("lastActivity", currentTime.toString());
+          setAutoChangeBalance(0)
+        }
+      }, 10);
+
+    return () => clearInterval(intervalID);
+  }}, [autoChangeBalance]);
+
+
+  useEffect(() => {
+    if (autoBot && currentTime- lastActivity >= 60 * 60 * 1000 && lastActivity) {
+      const amountTime = (currentTime - lastActivity) / 1000;
+      setAutoChangeBalance(amountTime * 0.0001)
       setBalance((prevBalance) => prevBalance + amountTime * 0.0001);
       setDream(amountTime * 0.0001);
       setShowDream(true);
@@ -137,7 +156,7 @@ const HomePage = () => {
       </div>
 
       <div className={`top-section2 ${showDream ? "show" : ""}`}>
-        {showDream && `+${dream.toFixed(5)}`}
+        {showDream && `+${dream.toFixed(5)}⚒`}
       </div>
       <div className="middle-section">
         <img src={coinimage} alt="Coin" className="coin-icon" />

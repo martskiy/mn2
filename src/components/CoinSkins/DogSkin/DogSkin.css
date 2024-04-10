@@ -40,7 +40,9 @@
   width: 14%; /* Отступ слева от изображения */
 }
 
-
+.dog-skin-name {
+  color: rgb(153, 155, 153);
+}
 
 
 .dog-skin-image {

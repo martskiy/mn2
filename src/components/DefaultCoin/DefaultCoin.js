@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import "./DefaultCoin.css";
 import defaultskin from "./photo_2024-03-28_23-01-05-transformed.png";
 import dogskin from "./dog.png";
-import legendaryskin from "./photo_2024-03-17_19-41-14-removebg-preview.png";
+import legendaryskin from "./IMG_5600.HEIC";
 import UserContext from "../../context/UserContext";
 import coinFly from './icons8-dollar-coin-94.png'
 

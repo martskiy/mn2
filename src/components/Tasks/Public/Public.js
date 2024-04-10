@@ -3,6 +3,7 @@ import "./Public.css";
 import telegram from "./Telegram.png";
 import UserContext from "../../../context/UserContext";
 import icons8 from "./icons8-dollar-coin-94.png";
+import galachka from './icons8-approval-94.png'
 
 const Public = () => {
   const { contextData } = useContext(UserContext);
@@ -35,7 +36,7 @@ const Public = () => {
                 <span>1.00</span>
               </>
             )}
-            {clicked && "получено"}
+            {clicked && <img src={galachka} alt="Icon" class="public-big-image" />}
           </p>
         </div>
       </a>

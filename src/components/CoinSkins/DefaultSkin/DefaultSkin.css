@@ -42,3 +42,7 @@
 .default-big-image{
   width: 25%;
 }
+
+.default-skin-name {
+  color: rgb(153, 155, 153);
+}

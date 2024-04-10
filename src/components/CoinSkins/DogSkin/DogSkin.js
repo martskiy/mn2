@@ -5,6 +5,7 @@ import UserContext from "../../../context/UserContext";
 import icons8 from "./icons8-dollar-coin-94.png";
 import galachka from './icons8-approval-94.png'
 
+
 const DogSkin = ({ selected, onSelect }) => {
   const [isSelected, setIsSelected] = useState(selected);
   const { contextData } = useContext(UserContext);

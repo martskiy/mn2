@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import icons8 from './icons8-dollar-coin-94.png'
 import './LegendarySkin.css';
-import legendaryImage from './photo_2024-03-17_19-41-14-removebg-preview.png';
+import legendaryImage from './IMG_5600.HEIC';
 import UserContext from '../../../context/UserContext'
 import galachka from './icons8-approval-94.png'
 

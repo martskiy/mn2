@@ -51,4 +51,6 @@
     text-align: center; 
     width: 100%;/* Выравнивание текста по центру */
   }
-  
+  .public-big-image {
+    width: 10%;
+  }

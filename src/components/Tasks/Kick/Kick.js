@@ -3,6 +3,7 @@ import "./Kick.css";
 import kickLogo from "./Kick_logo.svg.png";
 import UserContext from "../../../context/UserContext";
 import icons8 from './icons8-dollar-coin-94.png'
+import galachka from './icons8-approval-94.png'
 
 const Kick = () => {
   const { contextData } = useContext(UserContext);
@@ -34,7 +35,7 @@ const Kick = () => {
                   <span>2.00</span>
                 </>
               )}
-              {clicked && "получено"}
+              {clicked && <img src={galachka} alt="Icon" class="public-big-image" />}
             </div>
           </div>
         </a>
