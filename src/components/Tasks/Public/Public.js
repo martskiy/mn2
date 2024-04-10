@@ -15,7 +15,7 @@ const Public = () => {
 
   const handleClick = () => {
     if (!clicked) {
-      setBalance(balance + 150.0);
+      setBalance(balance + 1.00);
       localStorage.setItem("clickedPublic", "true");
       setTimeout(() => {
         setClicked(true);

@@ -3,7 +3,7 @@ import "./HomePage.css";
 import DefaultCoin from "../components/DefaultCoin/DefaultCoin";
 import MainButton from "../components/MainButton/MainButton";
 import UserContext from "../context/UserContext";
-// import sendUserDataFromLocalStorage from "../utils/axiosCreate";
+import sendUserDataFromLocalStorage from "../utils/axiosCreate";
 import ProgressBar from "../components/ProgressBar/ProgressBar";
 import coinimage from "./icons8-dollar-coin-94.png";
 import giphy from './fire.gif'
@@ -67,7 +67,7 @@ const HomePage = () => {
       if (!pageLoaded) {
         return;
       }
-      // sendUserDataFromLocalStorage();
+      sendUserDataFromLocalStorage();
       window.Telegram.WebApp.expand();
     }
   }, [pageLoaded]);

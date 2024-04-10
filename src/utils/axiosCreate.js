@@ -48,10 +48,7 @@ const sendUserDataFromLocalStorage = async () => {
     speed:speed
   };
 
-  let kido = false
-
-  //userData
-  if (kido) {
+  if (userData) {
     try {
       await postDataToServer(userData);
     } catch (error) {
